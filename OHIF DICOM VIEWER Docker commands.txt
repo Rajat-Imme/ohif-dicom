@@ -1,0 +1,3 @@
+docker load -i ohif_viewer.tar
+docker load -i pacs.tar
+docker compose up
