@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CadavizDicomViewer"
-#define MyAppVersion "1.0.1"
+#define MyAppVersion "1.0.2"
 #define MyAppPublisher "Immersivevision Technology Pvt Ltd"
 #define MyAppURL "https://immersivelabz.com/"
 #define MyAppExeName "CadavizDicomViewer.exe"
@@ -37,9 +37,9 @@ Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: 
 
 [Files]
 Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\SetupCreator\Files\Docker Desktop Installer.exe"; DestDir: "{tmp}";
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\SetupCreator\Files\installdockersilent.bat"; DestDir: "{tmp}";
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\SetupCreator\Files\OpenCadavizDicomViewer.bat"; DestDir: "{app}";
+Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\Docker Desktop Installer.exe"; DestDir: "{tmp}";
+Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\installdockersilent.bat"; DestDir: "{tmp}";
+Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\OpenCadavizDicomViewer.bat"; DestDir: "{app}";
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
