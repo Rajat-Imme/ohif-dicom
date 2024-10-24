@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CadavizDicomViewer"
-#define MyAppVersion "1.0.2"
+#define MyAppVersion "1.0.4"
 #define MyAppPublisher "Immersivevision Technology Pvt Ltd"
 #define MyAppURL "https://immersivelabz.com/"
 #define MyAppExeName "CadavizDicomViewer.exe"
@@ -16,6 +16,7 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
+;DefaultDirName="C:\{#MyAppName}"
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 OutputDir="..\Build"
@@ -36,7 +37,9 @@ Name: "Start_{#MyAppName}"; Description: "Start my app when Windows starts"; Gro
 Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "Open{#MyAppName}"; ValueData: "{app}\Open{#MyAppName}.bat"; Tasks: Start_{#MyAppName}
 
 [Files]
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; Exclude the ".git" folder, ".gitattributes", ".gitignore", "OHIF DICOM VIEWER Docker commands.txt", and "SetupCreator" folder
+Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: ".git\*, .gitattributes, .gitignore, OHIF DICOM VIEWER Docker commands.txt, SetupCreator\*"
+; Now, manually include the files in "SetupCreator\Files" folder
 Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\Docker Desktop Installer.exe"; DestDir: "{tmp}";
 Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\installdockersilent.bat"; DestDir: "{tmp}";
 Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\OpenCadavizDicomViewer.bat"; DestDir: "{app}";
