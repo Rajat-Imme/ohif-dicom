@@ -40,21 +40,21 @@ if %errorlevel% neq 0 (
 
 echo Docker Subscription Service Agreement accepted.
 
-REM echo Adding image "ohif_viewer"...
-REM docker load -i ohif_viewer.tar
-REM if %errorlevel% neq 0 (
-REM     echo Failed to load "ohif_viewer.tar". Make sure the file exists in the folder.
-REM     pause
-REM     exit /B 1
-REM )
+echo Adding image "ohif_viewer"...
+docker load -i ohif_viewer.tar
+if %errorlevel% neq 0 (
+    echo Failed to load "ohif_viewer.tar". Make sure the file exists in the folder.
+    pause
+    exit /B 1
+)
 
-REM echo Adding image "pacs"...
-REM docker load -i pacs.tar
-REM if %errorlevel% neq 0 (
-REM     echo Failed to load "pacs.tar". Make sure the file exists in the folder.
-REM     pause
-REM     exit /B 1
-REM )
+echo Adding image "pacs"...
+docker load -i pacs.tar
+if %errorlevel% neq 0 (
+    echo Failed to load "pacs.tar". Make sure the file exists in the folder.
+     pause
+    exit /B 1
+)
 
 
 echo Running Docker...
