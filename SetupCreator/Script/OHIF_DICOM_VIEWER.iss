@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CadavizDicomViewer"
-#define MyAppVersion "1.0.4"
+#define MyAppVersion "1.0.5"
 #define MyAppPublisher "Immersivevision Technology Pvt Ltd"
 #define MyAppURL "https://immersivelabz.com/"
 #define MyAppExeName "CadavizDicomViewer.exe"
@@ -38,11 +38,11 @@ Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: 
 
 [Files]
 ; Exclude the ".git" folder, ".gitattributes", ".gitignore", "OHIF DICOM VIEWER Docker commands.txt", and "SetupCreator" folder
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: ".git\*, .gitattributes, .gitignore, OHIF DICOM VIEWER Docker commands.txt, SetupCreator\*"
+Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: ".git\*, .gitattributes, .gitignore, OHIF DICOM VIEWER Docker commands.txt, SetupCreator\*"
 ; Now, manually include the files in "SetupCreator\Files" folder
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\Docker Desktop Installer.exe"; DestDir: "{tmp}";
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\installdockersilent.bat"; DestDir: "{tmp}";
-Source: "\\?\Volume{7c5fa8d9-e7c8-4c95-9f55-78700830c27f}\OHIF_DICOM_VIEWER\ohif-dicom\SetupCreator\Files\OpenCadavizDicomViewer.bat"; DestDir: "{app}";
+Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\Docker Desktop Installer.exe"; DestDir: "{tmp}";
+Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\installdockersilent.bat"; DestDir: "{tmp}";
+Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\OpenCadavizDicomViewer.bat"; DestDir: "{app}";
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
