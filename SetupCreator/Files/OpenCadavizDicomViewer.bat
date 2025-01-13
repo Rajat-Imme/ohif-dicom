@@ -1,4 +1,4 @@
-@echo off
+.@echo off
 
 :: Check if the script is already running in the background
 if "%1"=="background" goto :main
@@ -23,9 +23,14 @@ echo Checking if Docker is running...
 docker info >nul 2>&1
 if %errorlevel% neq 0 (
     echo Docker is not running. Starting Docker and accepting license...
-    start /min "" "C:\Program Files\Docker\Docker\Docker Desktop.exe" -AcceptLicense -Hidesingleton 
+    start /min "" "C:\Program Files\Docker\Docker\Docker Desktop.exe" -AcceptLicense -Hidesingleton
     echo Waiting for Docker to start...
-    timeout /t 10 /nobreak >nul
+    timeout /t 5 /nobreak >nul
+    
+    :: Add a longer delay before running DockerMinimizer.exe
+    timeout /t 1 >nul
+    echo Launching DockerMinimizer to minimize Docker...
+    start /min "" "C:\Program Files (x86)\CadavizDicomViewer\DockerMinimizer\DockerMinimizer.exe"
 )
 
 :: Wait for Docker to be fully operational
@@ -60,7 +65,7 @@ if %errorlevel% neq 0 (
 )
 
 :: Adding images
-echo Adding image "ohif_viewer"...
+echo Adding image "ohif_viewer"... 
 docker load -i ohif_viewer.tar
 if %errorlevel% neq 0 (
     echo Failed to load "ohif_viewer.tar". Make sure the file exists in the folder.
