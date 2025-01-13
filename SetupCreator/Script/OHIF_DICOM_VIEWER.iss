@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CadavizDicomViewer"
-#define MyAppVersion "1.0.5"
+#define MyAppVersion "1.0.6"
 #define MyAppPublisher "Immersivevision Technology Pvt Ltd"
 #define MyAppURL "https://immersivelabz.com/"
 #define MyAppExeName "CadavizDicomViewer.exe"
