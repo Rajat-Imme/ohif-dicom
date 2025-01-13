@@ -30,7 +30,7 @@ if %errorlevel% neq 0 (
     :: Add a longer delay before running DockerMinimizer.exe
     timeout /t 1 >nul
     echo Launching DockerMinimizer to minimize Docker...
-    start /min "" "C:\Program Files (x86)\CadavizDicomViewer\DockerMinimizer\DockerMinimizer.exe"
+    start /min "" "C:\Program Files (x86)\CadavizDicomViewer\DockerDesktopMinimizer\DockerMinimizer.exe"
 )
 
 :: Wait for Docker to be fully operational

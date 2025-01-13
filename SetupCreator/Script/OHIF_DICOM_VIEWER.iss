@@ -38,14 +38,14 @@ Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: 
 
 [Files]
 ; Exclude the ".git" folder, ".gitattributes", ".gitignore", "OHIF DICOM VIEWER Docker commands.txt", and "SetupCreator" folder
-Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: ".git\*, .gitattributes, .gitignore, OHIF DICOM VIEWER Docker commands.txt, SetupCreator\*"
+Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: ".git\*, .gitattributes, .gitignore, OHIF DICOM VIEWER Docker commands.txt, SetupCreator, DockerMinimizer_SourceCode, DockerDesktopMinimizer\Release"
 ; Now, manually include the files in "SetupCreator\Files" folder
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\Docker Desktop Installer.exe"; DestDir: "{tmp}";
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\installdockersilent.bat"; DestDir: "{tmp}";
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\OpenCadavizDicomViewer.bat"; DestDir: "{app}";
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\ohif_viewer.tar"; DestDir: "{app}";
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\pacs.tar"; DestDir: "{app}";
-Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\DockerMinimizer\DockerMinimizer\bin\Release\net8.0\*"; DestDir: "{app}\DockerMinimizer";
+Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\DockerDesktopMinimizer\Release\net8.0\*"; DestDir: "{app}\DockerDesktopMinimizer";
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
