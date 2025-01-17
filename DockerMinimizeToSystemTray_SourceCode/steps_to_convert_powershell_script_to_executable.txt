@@ -1,0 +1,11 @@
+We are handling Docker minimize to system tray in "minimize_docker_to_system_tray.ps1" powershell script. As we cannot run a powershell script directly, we need to create an executable. This can be done by below steps :
+
+Step - 0 : Open Powershell
+
+Step - 1 : Install "PS2EXE" tool
+Install-Module -Name PS2EXE -Scope CurrentUser -Force
+
+Step - 2 : Convert the script
+ps2exe -inputFile "path_to_your_script.ps1" -outputFile "path_to_output.exe"
+
+
