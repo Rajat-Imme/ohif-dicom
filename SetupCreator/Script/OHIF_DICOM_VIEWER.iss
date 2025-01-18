@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CadavizDicomViewer"
-#define MyAppVersion "1.0.6"
+#define MyAppVersion "1.0.7"
 #define MyAppPublisher "Immersivevision Technology Pvt Ltd"
 #define MyAppURL "https://immersivelabz.com/"
 #define MyAppExeName "CadavizDicomViewer.exe"
@@ -45,6 +45,7 @@ Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreato
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\OpenCadavizDicomViewer.bat"; DestDir: "{app}";
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\ohif_viewer.tar"; DestDir: "{app}";
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\pacs.tar"; DestDir: "{app}";
+Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\SetupCreator\Files\cleanup_temp.bat"; DestDir: "{app}";
 Source: "\\?\Volume{750de075-f1db-4fde-ba56-b945a7e29003}\ohif-dicom\DockerMinimizeToSystemTray_SourceCode\build\minimize_docker_to_system_tray.exe"; DestDir: "{app}";
 
 [Icons]

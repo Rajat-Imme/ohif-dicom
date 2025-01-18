@@ -1,7 +1,7 @@
 @echo off
 
-:: Define lock file path
-set lockFile="C:\Program Files (x86)\CadavizDicomViewer\Cadaviz_Lock.tmp"
+:: Define lock file path in the temporary folder
+set lockFile=%TEMP%\Cadaviz_Lock.tmp
 
 :: Check if the script is already running in the background
 if "%1"=="background" goto :main
