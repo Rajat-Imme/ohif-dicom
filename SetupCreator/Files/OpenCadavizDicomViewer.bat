@@ -1,7 +1,19 @@
-.@echo off
+@echo off
+
+:: Define lock file path
+set lockFile="C:\Program Files (x86)\CadavizDicomViewer\Cadaviz_Lock.tmp"
 
 :: Check if the script is already running in the background
 if "%1"=="background" goto :main
+
+:: Check if lock file exists (indicating another instance is running)
+if exist %lockFile% (
+    echo Another instance of the script is already running. Exiting...
+    exit /B
+)
+
+:: Create lock file to prevent duplicate execution
+echo Locking script execution... > %lockFile%
 
 :: Relaunch the script in the background with elevated privileges
 start /min "" "%~f0" background
@@ -15,6 +27,7 @@ cd /d %folderPath%
 if %errorlevel% neq 0 (
     echo Failed to change directory to %folderPath%. Ensure the path exists and is accessible.
     pause
+    del %lockFile%
     exit /B 1
 )
 
@@ -48,6 +61,7 @@ if %errorlevel% neq 0 (
     ) else (
         echo Docker failed to start after several attempts.
         pause
+        del %lockFile%
         exit /B 1
     )
 )
@@ -61,6 +75,7 @@ powershell -Command "icacls 'C:\Program Files (x86)\CadavizDicomViewer\volumes' 
 if %errorlevel% neq 0 (
     echo Failed to grant permissions. Check if the script is running with elevated privileges.
     pause
+    del %lockFile%
     exit /B 1
 )
 
@@ -70,14 +85,16 @@ docker load -i ohif_viewer.tar
 if %errorlevel% neq 0 (
     echo Failed to load "ohif_viewer.tar". Make sure the file exists in the folder.
     pause
+    del %lockFile%
     exit /B 1
 )
 
-echo Adding image "pacs"...
+echo Adding image "pacs"... 
 docker load -i pacs.tar
 if %errorlevel% neq 0 (
     echo Failed to load "pacs.tar". Make sure the file exists in the folder.
     pause
+    del %lockFile%
     exit /B 1
 )
 
@@ -87,6 +104,7 @@ docker-compose up
 if %errorlevel% neq 0 (
     echo Failed to run Docker Compose. Make sure Docker and Docker Compose are installed and running.
     pause
+    del %lockFile%
     exit /B 1
 )
 
@@ -96,8 +114,13 @@ reg add "HKEY_CURRENT_USER\Software\ImmersiveLabz\Cadaviz" /v IsDockerReady /t R
 if %errorlevel% neq 0 (
     echo Failed to set the registry key.
     pause
+    del %lockFile%
     exit /B 1
 )
 
 echo Operation completed successfully.
+
+:: Remove the lock file to indicate the script has finished
+del %lockFile%
+
 exit /B
