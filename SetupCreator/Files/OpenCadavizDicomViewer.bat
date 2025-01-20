@@ -38,10 +38,10 @@ if %errorlevel% neq 0 (
     echo Docker is not running. Starting Docker and accepting license...
     start /min "" "C:\Program Files\Docker\Docker\Docker Desktop.exe" -AcceptLicense -Hidesingleton
     echo Waiting for Docker to start...
-    timeout /t 5 /nobreak >nul
+    timeout /t 7 /nobreak >nul
     
     :: Add a longer delay before running DockerMinimizer.exe
-    timeout /t 1 >nul
+    timeout /t 3 >nul
     echo Launching DockerMinimizer to minimize Docker...
     start /min "" "C:\Program Files (x86)\CadavizDicomViewer\minimize_docker_to_system_tray.exe"
 )
