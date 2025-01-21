@@ -5,12 +5,7 @@ version: '3.8'
 services:
   # Exposed server that's handling incoming web requests
   ohif_viewer:
-    build:
-      # Project root
-      context: ./../../../../
-      # Relative to context
-      dockerfile: ./platform/app/.recipes/Nginx-Orthanc/dockerfile
-    image: webapp:latest
+    image: rajatimme/ohif:latest
     networks:
       - my_custom_network
     container_name: ohif_orthanc
