@@ -9,13 +9,13 @@
   "Plugins": ["/usr/share/orthanc/plugins", "/usr/local/share/orthanc/plugins"],
   "ConcurrentJobs": 2,
   "HttpServerEnabled": true,
-  "HttpPort": 8043,
+  "HttpPort": 8042,
   "HttpDescribeErrors": true,
   "HttpCompressionEnabled": true,
   "DicomServerEnabled": true,
   "DicomAet": "ORTHANC-OHIF",
   "DicomCheckCalledAet": false,
-  "DicomPort": 4243,
+  "DicomPort": 4242,
   "DefaultEncoding": "Latin1",
   "DeflatedTransferSyntaxAccepted": true,
   "JpegTransferSyntaxAccepted": true,
@@ -34,18 +34,14 @@
     "test": "test"
   },
   "DicomModalities": {
-    "Hospital": ["Orthanc-Hospital", "host.docker.internal", 4242],
-    "AWS": ["Orthanc-Hospital-AWS", "18.214.233.182", 4242]
+    "Slicer": ["CTKSTORE", "172.19.0.4", 11112]
   },
   "DicomModalitiesInDatabase": false,
   "DicomAlwaysAllowEcho": true,
   "DicomAlwaysAllowStore": true,
   "DicomCheckModalityHost": false,
   "DicomScuTimeout": 150,
-  "OrthancPeers": {
-    "hospital_pacs": ["http://host.docker.internal:8042/", "test", "test"],
-    "aws_pacs": ["http://http://18.214.233.182:8042/", "test", "test"]
-  },
+  "OrthancPeers": {},
   "OrthancPeersInDatabase": false,
   "HttpProxy": "",
   "HttpVerbose": true,
